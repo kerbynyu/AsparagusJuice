@@ -5,47 +5,34 @@ using UnityEngine;
 public class TriggerScript1 : MonoBehaviour
 {
 
-    public Camera camera1;
-    public Camera camera2;
+    public Camera prevCam;
+    public Camera newCam;
+   
 
-    public GameObject cup;
-
-    private void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("ENTER" + other.name + "");
-        if (other.name.Equals("Orange")){
-
-            camera1.enabled = false;
-            camera2.enabled = true;
-
-            cup.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
-            
-           
-        }
-
+    void Start(){
+        
     }
 
-    private void OnTriggerStay2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D other){
+      
+        if (other.name.Equals("Orange")||other.name.Equals("Orange2")) {
+
+            prevCam.enabled = false;
+            newCam.enabled = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision){
         
     }
 
     private void OnTriggerExit2D(Collider2D collision){
-        Debug.Log("EXIT");
+       
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Update() {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (cup.transform.position.y <= -45)
-        {
-            cup.SetActive(false);
-        }
-    }
 }

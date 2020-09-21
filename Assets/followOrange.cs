@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cam1basicscript : MonoBehaviour
+public class followOrange : MonoBehaviour
 {
+
+    public Transform target;
+    public GameObject thing; //the orange lmao bad naming conventions
+
     // Start is called before the first frame update
     void Start()
     {
@@ -11,9 +15,8 @@ public class cam1basicscript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
-
-        Vector3 PlayerPOS = GameObject.Find("Player").transform.transform.position;
-       
+    void Update()
+    {
+        transform.position = target.transform.position;
     }
 }
